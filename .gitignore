@@ -1,4 +1,6 @@
 node_modules/
-.vscode
 .idea/
+Images/
+.vscode
 .DS_Store
+homework_instructions.md
