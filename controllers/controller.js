@@ -6,23 +6,24 @@ var db = require("../models");
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
-var cat = require("../models/cat.js");
+var cat = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  cat.all(function(data) {
-    var hbsObject = {
-      cats: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-  });
-});
+// router.get("/", function(req, res) {
+//   cat.all(function(data) {
+//     var hbsObject = {
+//       cats: data
+//     };
+//     console.log("hbsObjectHERE: " + hbsObject);
+//     res.render("index", hbsObject);
+//   });
+// });
 
 // Routes
 
 // A GET route for scraping the echoJS website
 router.get("/scrape", function(req, res) {
+
   // First, we grab the body of the html with axios
   axios.get("http://www.echojs.com/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
